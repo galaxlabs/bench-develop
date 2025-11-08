@@ -1,0 +1,7 @@
+{
+  "owner": "Galaxy Labs",
+  "db": {
+    "engine": "sqlite3",
+    "name": "dev.sqlite3"
+  }
+}
