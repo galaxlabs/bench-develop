@@ -1,10 +1,19 @@
 # bench/cli.py
+from bench.commands import make, utils, install, update, setup, config, git
 import os
 import sys
 import platform
 import importlib
 import click
 from rich import print as rprint
+
+@click.group()
+@click.version_option()
+def main():
+    """Bench CLI (Orbit) – workspace/site/app manager."""
+
+main.add_command(make.cmd, name="make")
+main.add_command(utils.cmd, name="init")  # bench init / orbit init
 
 CTX = {"help_option_names": ["-h", "--help"]}
 

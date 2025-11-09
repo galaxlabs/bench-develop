@@ -2,6 +2,17 @@
 from pathlib import Path
 import click
 from rich import print as rprint
+from bench.commands.make import make_workspace
+
+
+@click.command("init")
+@click.argument("path", required=False, default=".")
+@click.option("--auto-cd/--no-auto-cd", default=False)
+@click.option("--no-venv", is_flag=True, default=False)
+def cmd(path, auto_cd, no_venv):
+    """Alias for `bench make workspace`."""
+    ctx = click.get_current_context()
+    ctx.invoke(make_workspace.callback, path=path, py_exe=None, auto_cd=auto_cd, no_venv=no_venv)
 
 @click.group(help="Utility helpers.")
 def cmd():

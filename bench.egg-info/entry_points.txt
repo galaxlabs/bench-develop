@@ -1,0 +1,3 @@
+[console_scripts]
+bench = bench.cli:main
+orbit = bench.cli:main
